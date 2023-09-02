@@ -16,7 +16,7 @@ export default class SolarPanelsMap {
   private panelEnergyConicElement!: HTMLDivElement;
   private panelEnergyConicInnerElement!: HTMLDivElement;
 
-  constructor(private readonly apiKey: string, private readonly element: HTMLDivElement) {
+  constructor(private readonly apiKeyOrProxyUrl: string | URL, private readonly element: HTMLDivElement) {
     element.classList.add("solar-panels");
 
     this.initMap();
@@ -182,7 +182,7 @@ export default class SolarPanelsMap {
   public async showInsightsForCoordinate(coordinate: LatLng) {
     this.formElement.innerHTML = `<h2 class="solar-panels-form-label">Loading data...</h2>`;
 
-    this.buildingInsights = await findClosestBuildingInsights(this.apiKey, {
+    this.buildingInsights = await findClosestBuildingInsights(this.apiKeyOrProxyUrl, {
       location: coordinate
     });
 
@@ -215,7 +215,7 @@ export default class SolarPanelsMap {
       google.maps.geometry.spherical.computeOffset(location, radius, 270)
     ];
 
-    const dataLayers = await getDataLayers(this.apiKey, {
+    const dataLayers = await getDataLayers(this.apiKeyOrProxyUrl, {
       location: coordinate,
       radiusMeters: radius,
       view: "IMAGERY_AND_ANNUAL_FLUX_LAYERS"
@@ -227,7 +227,7 @@ export default class SolarPanelsMap {
       bounds.extend(coordinate);
     });
 
-    const image = await getDataLayersCanvas(this.apiKey, dataLayers);
+    const image = await getDataLayersCanvas(this.apiKeyOrProxyUrl, dataLayers);
 
     const dataLayerOverlay = DataLayerOverlay.create(bounds, image);
 

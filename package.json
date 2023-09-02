@@ -16,7 +16,7 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
-    "@nora-soderlund/google-maps-solar-api": "^1.0.3",
+    "@nora-soderlund/google-maps-solar-api": "^1.0.4",
     "geotiff.js": "^1.0.1"
   }
 }
