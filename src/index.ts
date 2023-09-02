@@ -271,7 +271,7 @@ export default class SolarPanelsMap {
 
           const top = google.maps.geometry.spherical.computeOffset(center, height, angle + 0);
           const right = google.maps.geometry.spherical.computeOffset(center, width, angle + 90);
-          const left = google.maps.geometry.spherical.computeOffset(center, width, angle + 370);
+          const left = google.maps.geometry.spherical.computeOffset(center, width, angle + 270);
 
           const topRight = google.maps.geometry.spherical.computeOffset(top, width, angle + 90);
           const bottomRight = google.maps.geometry.spherical.computeOffset(right, height, angle + 180);
