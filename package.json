@@ -1,0 +1,22 @@
+{
+  "name": "google-maps-solar-api",
+  "version": "1.0.0",
+  "description": "A Google Maps JS integration of the Solar API.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npx webpack",
+    "start": "npx webpack --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/google.maps": "^3.54.0",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.2.2",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@nora-soderlund/google-maps-solar-api": "^1.0.3",
+    "geotiff.js": "^1.0.1"
+  }
+}
