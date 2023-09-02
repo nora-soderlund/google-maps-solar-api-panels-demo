@@ -270,11 +270,11 @@ export default class SolarPanelsMap {
           };
 
           const top = google.maps.geometry.spherical.computeOffset(center, height, angle + 0);
-          const right = google.maps.geometry.spherical.computeOffset(center, height, angle + 180);
+          const right = google.maps.geometry.spherical.computeOffset(center, width, angle + 180);
 
           const topRight = google.maps.geometry.spherical.computeOffset(top, width, angle + 90);
-          const bottomRight = google.maps.geometry.spherical.computeOffset(right, width, angle + 90);
-          const bottomLeft = google.maps.geometry.spherical.computeOffset(right, width, angle + 270);
+          const bottomRight = google.maps.geometry.spherical.computeOffset(right, height, angle + 90);
+          const bottomLeft = google.maps.geometry.spherical.computeOffset(right, height, angle + 270);
           const topLeft = google.maps.geometry.spherical.computeOffset(top, width, angle + 270);
 
           this.solarPanelPolygonReferences.set(solarPanel, new google.maps.Polygon({
